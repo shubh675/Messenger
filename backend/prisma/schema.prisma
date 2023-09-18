@@ -12,12 +12,11 @@ model User {
   email     String             @unique
   firstName String
   lastName  String
-  pic       String
-  isAdmin   Boolean            @default(false)
+  password  String
+  pic       String @default("pic Url")
   chats     ChatParticipants[]
   Message   Message[]
 
-  @@map("users")
 }
 
 model Chat {
@@ -29,11 +28,12 @@ model Chat {
   updatedAt    DateTime           @updatedAt
   Message      Message[]
 
-  @@map("chats")
+ 
 }
 
 model ChatParticipants {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  isAdmin   Boolean  @default(false)
   user      User     @relation(fields: [userId], references: [userId])
   userId    String   @db.ObjectId
   chat      Chat     @relation(fields: [chatId], references: [chatId])
@@ -41,7 +41,7 @@ model ChatParticipants {
   createdAt DateTime @default(now())
 
   @@unique([userId, chatId])
-  @@map("chat_participants")
+ 
 }
 
 model Message {
@@ -53,6 +53,4 @@ model Message {
   chatId    String   @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  @@map("messages")
 }
