@@ -1,0 +1,22 @@
+Api docs 
+
+/* auth */
+     //Signup api 
+        route : http://localhost:5000/api/auth/signup
+        Method : POST
+        Params: null
+        Body: firstName: string, lastName: string, email: string, password: string, pic: string optional? 
+        Response:
+          Status: 201
+             success:true,
+             token:token,
+             user:{
+             userId: string,
+             firstName: string,
+             lastName: string,
+             email:string,
+             pic:string,
+          Status: 409 
+            success: false, message: "user exist with this email"
+          Status:400
+           Success: false.message: String
