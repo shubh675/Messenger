@@ -15,7 +15,8 @@ export const searchUser = async (req, res) => {
       select: {
         userId: true,
         firstName: true,
-        lastName: true,  
+        lastName: true,
+        pic:true,  
       },
     });
 
