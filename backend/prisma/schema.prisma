@@ -21,7 +21,7 @@ model User {
 
 model Chat {
   chatId       String             @id @default(auto()) @map("_id") @db.ObjectId
-  chatName     String
+  chatName     String?
   isGroupChat  Boolean            @default(false)
   participants ChatParticipants[]
   createdAt    DateTime           @default(now())

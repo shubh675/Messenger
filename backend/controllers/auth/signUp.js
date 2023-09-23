@@ -38,7 +38,7 @@ export const signUpUser = async (req, res) => {
 
       if (user) {
         const token = generateToken(user.userId);
-        res.status(201).cookie('access_token', 'Bearer ' + token, {
+        res.status(201).cookie('access_token', token, {
         expires: new Date(Date.now() + 8 * 3600000) // cookie will be removed after 8 hours
       }).json({
         success:true,

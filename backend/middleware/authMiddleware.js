@@ -2,8 +2,10 @@ import { prisma } from "../prisma/index.js";
 import { verifyToken } from "../utils/generateTOken.js";
 
 const isAuthenticated = async (req, res, next) => {
+ 
   if (req?.cookies?.access_token) {
     try {
+
       const token = req.cookies.access_token;
       //user Id from decoded token
       const userId = verifyToken(token);
@@ -18,7 +20,7 @@ const isAuthenticated = async (req, res, next) => {
         where: { userId: userId },
         select: { userId: true },
       });
-
+   
       next();
     } catch (error) {
       res.status(403).json({
