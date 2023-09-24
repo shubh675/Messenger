@@ -3,8 +3,7 @@ import { prisma } from "../../prisma/index.js"
 
 
 export async function getAllChat(req,res){
-  const chatId = req.params;
-  return res.json(chatId)
+  
 try{
 const {userId} =req.userId;
 const chatsForUser = await prisma.chatParticipants.findMany({
