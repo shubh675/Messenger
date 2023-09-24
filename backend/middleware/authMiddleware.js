@@ -1,5 +1,5 @@
 import { prisma } from "../prisma/index.js";
-import { verifyToken } from "../utils/generateTOken.js";
+import { verifyToken } from "../utils/generateToken.js";
 
 const isAuthenticated = async (req, res, next) => {
  

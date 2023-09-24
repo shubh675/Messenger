@@ -1,6 +1,6 @@
 import { matchPassword } from "../../utils/encryption.js";
 import { prisma } from "../../prisma/index.js";
-import { generateToken } from "../../utils/generateTOken.js";
+import { generateToken } from "../../utils/generateToken.js";
 
 export const signIn = async (req, res) => {
   const { email, password } = req.body;
